@@ -42,6 +42,8 @@ export default function Challenges() {
 					{displayedChallenges.length > 0 && (
 						<motion.ol
 							key='list'
+							animate={{ opacity: 1, y: 0 }}
+							initial={{ opacity: 0, y: -20 }}
 							exit={{ y: -30, opacity: 0 }}
 							className='challenge-items'>
 							{displayedChallenges.map(challenge => (
@@ -57,9 +59,11 @@ export default function Challenges() {
 						</motion.ol>
 					)}
 					{displayedChallenges.length === 0 && (
-						<motion.p key='fallback' initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0}}
-            exit={{ opacity:0, y: -20}}>
+						<motion.p
+							key='fallback'
+							initial={{ opacity: 0, y: -20 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: -20 }}>
 							No challenges found.
 						</motion.p>
 					)}
